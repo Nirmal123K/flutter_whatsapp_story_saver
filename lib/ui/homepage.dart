@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:story_save/test.dart';
 import 'package:story_save/ui/dashboard.dart';
 
-
 class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -78,8 +77,10 @@ class MyHome extends StatelessWidget {
                                       "3) Click the Save Button...\n The Image/Video is Intantly saved to Your Gallery ",
                                       style: TextStyle(
                                           fontSize: 16.0, color: Colors.black)),
-                                  SizedBox(height: 8,),
-                                   Text(
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text(
                                       "4) Click the Share Button...\n The Image/Video is Intantly share to Your friends",
                                       style: TextStyle(
                                           fontSize: 16.0, color: Colors.black)),
@@ -102,8 +103,7 @@ class MyHome extends StatelessWidget {
                     );
                   });
             },
-          ),  
-         
+          ),
         ],
         bottom: TabBar(
             indicatorColor: Colors.blue,
