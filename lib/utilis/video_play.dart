@@ -119,21 +119,13 @@ class _PlayStatusState extends State<PlayStatus> {
             "If Image not available in gallary\n\nYou can find all images at");
       }, "Save", Colors.black, Colors.white, true),
       new FabMiniMenuItem.withText(
-          new Icon(Icons.share),
-          Colors.black,
-          4.0,
-          "Button menu",
-          () async {
-             File originalVideoFile = File(widget.videoFile);
-               String originalfilename = originalVideoFile.path;
+          new Icon(Icons.share), Colors.black, 4.0, "Button menu", () async {
+        File originalVideoFile = File(widget.videoFile);
+        String originalfilename = originalVideoFile.path;
 
-                await FlutterShare.shareFile(
+        await FlutterShare.shareFile(
             title: 'Story Saver app', filePath: originalfilename);
-          },
-          "Share",
-          Colors.black,
-          Colors.white,
-          true),
+      }, "Share", Colors.black, Colors.white, true),
 
       // new FabMiniMenuItem.withText(new Icon(Icons.wallpaper), Colors.teal, 4.0,
       //     "Button menu", () {}, "Set As", Colors.black, Colors.white, true),
@@ -172,7 +164,7 @@ class _PlayStatusState extends State<PlayStatus> {
               looping: true,
               videoSrc: widget.videoFile,
             ),
-             new FabDialer(
+            new FabDialer(
                 _fabMiniMenuItemList,
                 Colors.white,
                 new Icon(

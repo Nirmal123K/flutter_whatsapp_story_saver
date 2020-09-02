@@ -22,17 +22,16 @@ class StatusVideo extends StatefulWidget {
 
 class _StatusVideoState extends State<StatusVideo> {
   ChewieController _chewieController;
-  
+
   @override
   void initState() {
-
     super.initState();
     _chewieController = ChewieController(
         videoPlayerController: widget.videoPlayerController,
         autoInitialize: true,
         allowFullScreen: true,
         allowMuting: true,
-        aspectRatio: widget.videoPlayerController.value.aspectRatio,
+        aspectRatio: 6 / 9,
         autoPlay: true,
         errorBuilder: (context, errorMessage) {
           return Center(
@@ -40,7 +39,7 @@ class _StatusVideoState extends State<StatusVideo> {
           );
         });
 
-        print(" as pect raio is ${widget.videoPlayerController.value.aspectRatio}");
+    print(" as pect raio is ${widget.videoPlayerController.value.aspectRatio}");
   }
 
   @override

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:story_save/ui/viewphotos.dart';
-
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 final Directory _photoDir =
     new Directory('/storage/emulated/0/WhatsApp/Media/.Statuses');
@@ -43,29 +43,43 @@ class _ImageScreenState extends State<ImageScreen> {
       if (imageList.length > 0) {
         return Container(
           margin: EdgeInsets.all(8.0),
-          child: StaggeredGridView.countBuilder(
-            itemCount: imageList.length,
-            crossAxisCount: 4,
-            itemBuilder: (context, index) {
-              String imgPath = imageList[index];
-              return Material(
-                
-                elevation: 8.0,
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-                child: InkWell(
-                    onTap: () {
-                      Navigator.push(context,
-                          new MaterialPageRoute(builder: (context) => ViewPhotos(imgPath)));
-                    },
-                    child: Hero(
-                        tag: imgPath,
-                        child: Image.file(File(imgPath), fit: BoxFit.cover))),
-              );
-            },
-            staggeredTileBuilder: (i) =>
-                StaggeredTile.count(2, i.isEven ? 2 : 2),
-            mainAxisSpacing: 8.0,
-            crossAxisSpacing: 8.0,
+          child: AnimationLimiter(
+            child: StaggeredGridView.countBuilder(
+              itemCount: imageList.length,
+              crossAxisCount: 4,
+              itemBuilder: (context, index) {
+                String imgPath = imageList[index];
+                return AnimationConfiguration.staggeredList(
+                  position: index,
+                  duration: const Duration(milliseconds: 300),
+                  child: SlideAnimation(
+                    verticalOffset: 50.0,
+                    child: FadeInAnimation(
+                      child: Material(
+                        elevation: 8.0,
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  new MaterialPageRoute(
+                                      builder: (context) =>
+                                          ViewPhotos(imgPath)));
+                            },
+                            child: Hero(
+                                tag: imgPath,
+                                child: Image.file(File(imgPath),
+                                    fit: BoxFit.cover))),
+                      ),
+                    ),
+                  ),
+                );
+              },
+              staggeredTileBuilder: (i) =>
+                  StaggeredTile.count(2, i.isEven ? 2 : 2),
+              mainAxisSpacing: 8.0,
+              crossAxisSpacing: 8.0,
+            ),
           ),
         );
       } else {
