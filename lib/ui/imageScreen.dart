@@ -51,7 +51,7 @@ class _ImageScreenState extends State<ImageScreen> {
                 String imgPath = imageList[index];
                 return AnimationConfiguration.staggeredList(
                   position: index,
-                  duration: const Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 400),
                   child: SlideAnimation(
                     verticalOffset: 50.0,
                     child: FadeInAnimation(

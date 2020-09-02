@@ -70,7 +70,7 @@ class _PlayStatusState extends State<PlayStatus> {
                           Padding(
                             padding: EdgeInsets.all(10.0),
                           ),
-                          Text("FileManager > story_save",
+                          Text("FileManager > Status of Whatsapp Downloader",
                               style: TextStyle(
                                   fontSize: 16.0, color: Colors.grey)),
                           Padding(

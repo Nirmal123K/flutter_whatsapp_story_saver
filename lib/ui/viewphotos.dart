@@ -78,7 +78,7 @@ class _ViewPhotosState extends State<ViewPhotos> {
                           Padding(
                             padding: EdgeInsets.all(10.0),
                           ),
-                          Text("FileManager > story_save",
+                          Text("FileManager > Status of Whatsapp Downloader",
                               style: TextStyle(
                                   fontSize: 16.0, color: Colors.grey)),
                           Padding(
@@ -141,7 +141,7 @@ class _ViewPhotosState extends State<ViewPhotos> {
 
         await FlutterShare.shareFile(
           
-            title: 'Story Saver app', filePath: originalfilename);
+            title: 'Status of Whatsapp Downloader app', filePath: originalfilename);
       }, "Share", Colors.black, Colors.white, true),
 
       // new FabMiniMenuItem.withText(new Icon(Icons.wallpaper), Colors.teal, 4.0,

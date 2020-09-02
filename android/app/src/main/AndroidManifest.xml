@@ -12,7 +12,7 @@
  
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="story_save"
+        android:label="Status of Whatsapp Downloader"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

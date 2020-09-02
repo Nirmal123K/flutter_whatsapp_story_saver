@@ -117,17 +117,13 @@ class MyAppState extends State<MyApp> {
                           return Scaffold(
                             body: Container(
                               decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                begin: Alignment.bottomLeft,
-                                end: Alignment.topRight,
-                                colors: [
-                                  Colors.lightBlue[100],
-                                  Colors.lightBlue[200],
-                                  Colors.lightBlue[300],
-                                  Colors.lightBlue[200],
-                                  Colors.lightBlue[100],
-                                ],
-                              )),
+                                color: Colors.white54,
+                              //     gradient: LinearGradient(
+                              //   begin: Alignment.bottomLeft,
+                              //   end: Alignment.topRight,
+                                
+                              //  )
+                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -136,14 +132,20 @@ class MyAppState extends State<MyApp> {
                                     padding: const EdgeInsets.all(20.0),
                                     child: Text(
                                       "Storage Permission Required",
-                                      style: TextStyle(fontSize: 20.0),
+                                      style: TextStyle(fontSize: 20.0,),
                                     ),
                                   ),
+                                  Card(
+                                      child: Container(
+                                        color: Colors.blue
+                                      ),
+                                  ),
                                   FlatButton(
+                                    
                                     padding: EdgeInsets.all(15.0),
                                     child: Text(
                                       "Allow Storage Permission",
-                                      style: TextStyle(fontSize: 20.0),
+                                      style: TextStyle(fontSize: 20.0,),
                                     ),
                                     color: Colors.indigo,
                                     textColor: Colors.white,
