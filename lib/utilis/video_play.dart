@@ -103,7 +103,13 @@ class _PlayStatusState extends State<PlayStatus> {
 
         File originalVideoFile = File(widget.videoFile);
         Directory directory = await getExternalStorageDirectory();
+      
         String temppath = directory.parent.parent.parent.parent.path;
+          if (!Directory("$temppath/Status of Whatsapp Downloader")
+                .existsSync()) {
+              Directory("$temppath/Status of Whatsapp Downloader")
+                  .createSync(recursive: true);
+            }
         //  print("Directory is ${directory}");
 
         //print("Path is ${path}");
@@ -111,7 +117,7 @@ class _PlayStatusState extends State<PlayStatus> {
         String originalfilename =
             originalVideoFile.path.split("/").last.toString();
         // String curDate = DateTime.now().toString();
-        String newFileName = "$temppath/story_save/$originalfilename";
+        String newFileName = "$temppath/Status of Whatsapp Downloader/$originalfilename";
         //   print("newFileName is ${newFileName}");
         await originalVideoFile.copy(newFileName);
 

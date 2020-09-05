@@ -13,7 +13,6 @@ void main() {
   );
 }
 
-
 class MyApp extends StatefulWidget {
   @override
   MyAppState createState() => new MyAppState();
@@ -22,9 +21,7 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   int _storagePermissionCheck;
   Future<int> _storagePermissionChecker;
- bool check;
-
- 
+  bool check;
 
   Future<int> requestStoragePermission() async {
     // PermissionStatus result = await SimplePermissions.requestPermission(Permission.ReadExternalStorage);
@@ -33,7 +30,6 @@ class MyAppState extends State<MyApp> {
     if (result[Permission.storage].isDenied) {
       return 0;
     } else if (result[Permission.storage].isGranted) {
-     
       return 1;
     } else {
       return 0;
@@ -46,8 +42,6 @@ class MyAppState extends State<MyApp> {
 //     setState(() {
 //       //_storagePermissionCheck = 1;
 //     });
-
-   
 
 //     print(_storagePermissionCheck);
 //     if (result.isDenied) {
@@ -69,12 +63,11 @@ class MyAppState extends State<MyApp> {
       print("Initial Values of $_storagePermissionCheck");
       if (_storagePermissionCheck == null || _storagePermissionCheck == 0) {
         storagePermissionCheckInt = await requestStoragePermission();
-       
       } else {
         storagePermissionCheckInt = 1;
       }
 
-     // print("storagePermissionCheckInt ${storagePermissionCheckInt}");
+      // print("storagePermissionCheckInt ${storagePermissionCheckInt}");
       if (storagePermissionCheckInt == 1) {
         finalPermission = 1;
       } else {
@@ -118,12 +111,12 @@ class MyAppState extends State<MyApp> {
                             body: Container(
                               decoration: BoxDecoration(
                                 color: Colors.white54,
-                              //     gradient: LinearGradient(
-                              //   begin: Alignment.bottomLeft,
-                              //   end: Alignment.topRight,
-                                
-                              //  )
-                               ),
+                                //     gradient: LinearGradient(
+                                //   begin: Alignment.bottomLeft,
+                                //   end: Alignment.topRight,
+
+                                //  )
+                              ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -132,20 +125,21 @@ class MyAppState extends State<MyApp> {
                                     padding: const EdgeInsets.all(20.0),
                                     child: Text(
                                       "Storage Permission Required",
-                                      style: TextStyle(fontSize: 20.0,),
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
                                     ),
                                   ),
                                   Card(
-                                      child: Container(
-                                        color: Colors.blue
-                                      ),
+                                    child: Container(color: Colors.blue),
                                   ),
                                   FlatButton(
-                                    
                                     padding: EdgeInsets.all(15.0),
                                     child: Text(
                                       "Allow Storage Permission",
-                                      style: TextStyle(fontSize: 20.0,),
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
                                     ),
                                     color: Colors.indigo,
                                     textColor: Colors.white,
