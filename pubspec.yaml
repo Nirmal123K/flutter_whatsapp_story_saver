@@ -46,7 +46,7 @@ dependencies:
   http: ^0.12.2
   clipboard: ^0.1.2+8
   flutter_spinkit: ^4.1.2+1
-  pull_to_refresh: ^1.6.1
+  dart_random_choice: ^0.0.2
 
 dev_dependencies:
   flutter_test:
