@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:story_save/ui/QuotesScreen.dart';
 
 import 'package:story_save/ui/imageScreen.dart';
 import 'package:story_save/ui/videoScreen.dart';
@@ -15,6 +16,7 @@ class _DashboardState extends State<Dashboard> {
       children: [
         ImageScreen(),
         VideoScreen(),
+        QuotestextScreen()
         
       ],
     );

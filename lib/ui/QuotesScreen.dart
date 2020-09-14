@@ -35,7 +35,6 @@ class _QuotestextScreenState extends State<QuotestextScreen> {
       print("Network error!!!");
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +62,13 @@ class _QuotestextScreenState extends State<QuotestextScreen> {
                       itemCount:
                           snapshot.data == null ? 0 : snapshot.data.length,
                       itemBuilder: (BuildContext context, i) {
+                        String realAuthor;
+                        if( snapshot.data[i].author == null){
+                          realAuthor = 'Anonymous';
+                        }else{
+                          realAuthor = snapshot.data[i].author;
+                        }
+
                         return Container(
                           decoration: BoxDecoration(
                               borderRadius:
@@ -95,7 +101,7 @@ class _QuotestextScreenState extends State<QuotestextScreen> {
                                   Container(
                                     alignment: Alignment.topRight,
                                     child: Text(
-                                      '-- ${snapshot.data[i].author}',
+                                      realAuthor,
                                       style: TextStyle(
                                           letterSpacing: 1.5,
                                           fontWeight: FontWeight.w600,
@@ -117,8 +123,7 @@ class _QuotestextScreenState extends State<QuotestextScreen> {
                                             FlutterClipboard.copy('"' +
                                                     '${snapshot.data[i].text}' +
                                                     '"' +
-                                                    '--' +
-                                                    '${snapshot.data[i].author}')
+                                                    realAuthor,)
                                                 .then((result) {
                                               final snackBar = SnackBar(
                                                 content:
@@ -136,7 +141,7 @@ class _QuotestextScreenState extends State<QuotestextScreen> {
                                             Share.share(
                                                 "${snapshot.data[i].text} " +
                                                     '\n\n' +
-                                                    'By ${snapshot.data[i].author}');
+                                                    'By $realAuthor' ,);
                                           }),
                                     ],
                                   ))
